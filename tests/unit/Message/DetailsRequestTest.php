@@ -1,17 +1,17 @@
 <?php
 /**
- * Yandex.Kassa driver for Omnipay payment processing library
+ * YooKassa driver for Omnipay payment processing library
  *
- * @link      https://github.com/hiqdev/omnipay-yandex-kassa
- * @package   omnipay-yandex-kassa
+ * @link      https://github.com/igor-tv/omnipay-yookassa
+ * @package   omnipay-yookassa
  * @license   MIT
- * @copyright Copyright (c) 2019, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2021, Igor Tverdokhleb, igor-tv@mail.ru
  */
 
-namespace Omnipay\YandexKassa\Tests\Message;
+namespace Omnipay\YooKassa\Tests\Message;
 
-use Omnipay\YandexKassa\Message\DetailsRequest;
-use Omnipay\YandexKassa\Message\DetailsResponse;
+use Omnipay\YooKassa\Message\DetailsRequest;
+use Omnipay\YooKassa\Message\DetailsResponse;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
 
 class DetailsRequestTest extends TestCase
@@ -30,7 +30,7 @@ class DetailsRequestTest extends TestCase
         $httpRequest = new HttpRequest();
         $this->request = new DetailsRequest($this->getHttpClient(), $httpRequest);
         $this->request->initialize([
-            'yandexClient'  => $this->buildYandexClient($this->shopId, $this->secretKey),
+            'yooKassaClient'  => $this->buildYooKassaClient($this->shopId, $this->secretKey),
             'shopId'        => $this->shopId,
             'secret'        => $this->secretKey,
             'transactionReference' => $this->transactionReference,
@@ -53,7 +53,7 @@ class DetailsRequestTest extends TestCase
                 ['http_code' => 200],
             ]);
 
-        $this->getYandexClient($this->request)
+        $this->getYooKassaClient($this->request)
              ->setApiClient($curlClientStub)
              ->setAuth($this->shopId, $this->secretKey);
 

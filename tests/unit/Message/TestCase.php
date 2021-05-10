@@ -1,21 +1,21 @@
 <?php
 /**
- * Yandex.Kassa driver for Omnipay payment processing library
+ * YooKassa driver for Omnipay payment processing library
  *
- * @link      https://github.com/hiqdev/omnipay-yandex-kassa
- * @package   omnipay-yandex-kassa
+ * @link      https://github.com/igor-tv/omnipay-yookassa
+ * @package   omnipay-yookassa
  * @license   MIT
- * @copyright Copyright (c) 2019, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2021, Igor Tverdokhleb, igor-tv@mail.ru
  */
 
-namespace Omnipay\YandexKassa\Tests\Message;
+namespace Omnipay\YooKassa\Tests\Message;
 
-use Omnipay\YandexKassa\Message\AbstractRequest;
-use YandexCheckout\Client;
+use Omnipay\YooKassa\Message\AbstractRequest;
+use YooKassaCheckout\Client;
 
 class TestCase extends \Omnipay\Tests\TestCase
 {
-    protected function buildYandexClient(string $shopId, string $secretKey): Client
+    protected function buildYooKassaClient(string $shopId, string $secretKey): Client
     {
         $client = new Client();
         $client->setAuth($shopId, $secretKey);
@@ -32,7 +32,7 @@ class TestCase extends \Omnipay\Tests\TestCase
         return $clientStub;
     }
 
-    protected function getYandexClient(AbstractRequest $request): Client
+    protected function getYooKassaClient(AbstractRequest $request): Client
     {
         $clientReflection = (new \ReflectionObject($request))->getProperty('client');
         $clientReflection->setAccessible(true);

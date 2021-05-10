@@ -1,25 +1,25 @@
 <?php
 /**
- * Yandex.Kassa driver for Omnipay payment processing library
+ * YooKassa driver for Omnipay payment processing library
  *
- * @link      https://github.com/hiqdev/omnipay-yandex-kassa
- * @package   omnipay-yandex-kassa
+ * @link      https://github.com/igor-tv/omnipay-yookassa
+ * @package   omnipay-yookassa
  * @license   MIT
- * @copyright Copyright (c) 2019, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2021, Igor Tverdokhleb, igor-tv@mail.ru
  */
 
-namespace Omnipay\YandexKassa;
+namespace Omnipay\YooKassa;
 
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Common\Http\ClientInterface;
-use Omnipay\YandexKassa\Message\CaptureRequest;
-use Omnipay\YandexKassa\Message\CaptureResponse;
-use Omnipay\YandexKassa\Message\DetailsRequest;
-use Omnipay\YandexKassa\Message\DetailsResponse;
-use Omnipay\YandexKassa\Message\IncomingNotificationRequest;
-use Omnipay\YandexKassa\Message\PurchaseRequest;
+use Omnipay\YooKassa\Message\CaptureRequest;
+use Omnipay\YooKassa\Message\CaptureResponse;
+use Omnipay\YooKassa\Message\DetailsRequest;
+use Omnipay\YooKassa\Message\DetailsResponse;
+use Omnipay\YooKassa\Message\IncomingNotificationRequest;
+use Omnipay\YooKassa\Message\PurchaseRequest;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
-use YandexCheckout\Client;
+use YooKassa\Client;
 
 /**
  * Class Gateway.
@@ -29,26 +29,26 @@ use YandexCheckout\Client;
 class Gateway extends AbstractGateway
 {
     /** @var Client|null */
-    private $yandexClient;
+    private $yooKassaClient;
 
     public function __construct(ClientInterface $httpClient = null, HttpRequest $httpRequest = null)
     {
         parent::__construct($httpClient, $httpRequest);
     }
 
-    protected function getYandexClient(): Client
+    protected function getYooKassaClient(): Client
     {
-        if ($this->yandexClient === null) {
-            $this->yandexClient = new Client();
-            $this->yandexClient->setAuth($this->getShopId(), $this->getSecret());
+        if ($this->yooKassaClient === null) {
+            $this->yooKassaClient = new Client();
+            $this->yooKassaClient->setAuth($this->getShopId(), $this->getSecret());
         }
 
-        return $this->yandexClient;
+        return $this->yooKassaClient;
     }
 
     public function getName()
     {
-        return 'Yandex.Kassa';
+        return 'YooKassa';
     }
 
     public function getShopId()
@@ -77,7 +77,7 @@ class Gateway extends AbstractGateway
      */
     public function purchase(array $parameters = [])
     {
-        return $this->createRequest(PurchaseRequest::class, $this->injectYandexClient($parameters));
+        return $this->createRequest(PurchaseRequest::class, $this->injectYooKassaClient($parameters));
     }
 
     /**
@@ -86,7 +86,7 @@ class Gateway extends AbstractGateway
      */
     public function capture(array $parameters = [])
     {
-        return $this->createRequest(CaptureRequest::class, $this->injectYandexClient($parameters));
+        return $this->createRequest(CaptureRequest::class, $this->injectYooKassaClient($parameters));
     }
 
     /**
@@ -95,7 +95,7 @@ class Gateway extends AbstractGateway
      */
     public function details(array $parameters = [])
     {
-        return $this->createRequest(DetailsRequest::class, $this->injectYandexClient($parameters));
+        return $this->createRequest(DetailsRequest::class, $this->injectYooKassaClient($parameters));
     }
 
     /**
@@ -104,12 +104,12 @@ class Gateway extends AbstractGateway
      */
     public function notification(array $parameters = [])
     {
-        return $this->createRequest(IncomingNotificationRequest::class, $this->injectYandexClient($parameters));
+        return $this->createRequest(IncomingNotificationRequest::class, $this->injectYooKassaClient($parameters));
     }
 
-    private function injectYandexClient(array $parameters): array
+    private function injectYooKassaClient(array $parameters): array
     {
-        $parameters['yandexClient'] = $this->getYandexClient();
+        $parameters['yooKassaClient'] = $this->getYooKassaClient();
 
         return $parameters;
     }

@@ -1,18 +1,18 @@
 <?php
 /**
- * Yandex.Kassa driver for Omnipay payment processing library
+ * YooKassa driver for Omnipay payment processing library
  *
- * @link      https://github.com/hiqdev/omnipay-yandex-kassa
- * @package   omnipay-yandex-kassa
+ * @link      https://github.com/igor-tv/omnipay-yookassa
+ * @package   omnipay-yookassa
  * @license   MIT
- * @copyright Copyright (c) 2019, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2021, Igor Tverdokhleb, igor-tv@mail.ru
  */
 
-namespace Omnipay\YandexKassa\Message;
+namespace Omnipay\YooKassa\Message;
 
 use Omnipay\Common\Exception\InvalidResponseException;
-use YandexCheckout\Model\PaymentStatus;
-use YandexCheckout\Request\Payments\Payment\CreateCaptureResponse;
+use YooKassaCheckout\Model\PaymentStatus;
+use YooKassaCheckout\Request\Payments\Payment\CreateCaptureResponse;
 
 /**
  * Class CaptureResponse.

@@ -1,16 +1,16 @@
 <?php
 /**
- * Yandex.Kassa driver for Omnipay payment processing library
+ * YooKassa driver for Omnipay payment processing library
  *
- * @link      https://github.com/hiqdev/omnipay-yandex-kassa
- * @package   omnipay-yandex-kassa
+ * @link      https://github.com/igor-tv/omnipay-yookassa
+ * @package   omnipay-yookassa
  * @license   MIT
- * @copyright Copyright (c) 2019, HiQDev (http://hiqdev.com/)
+ * @copyright Copyright (c) 2021, Igor Tverdokhleb, igor-tv@mail.ru
  */
 
-namespace Omnipay\YandexKassa\Tests\Message;
+namespace Omnipay\YooKassa\Tests\Message;
 
-use Omnipay\YandexKassa\Message\IncomingNotificationRequest;
+use Omnipay\YooKassa\Message\IncomingNotificationRequest;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
 
 class IncomingNotificationResponseTest extends TestCase

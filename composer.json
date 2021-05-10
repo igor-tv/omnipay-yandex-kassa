@@ -1,22 +1,22 @@
 {
-    "name": "hiqdev/omnipay-yandex-kassa",
+    "name": "igor-tv/omnipay-yookassa",
     "type": "library",
-    "description": "Yandex.Kassa driver for Omnipay payment processing library",
+    "description": "YooKassa driver for Omnipay payment processing library",
     "keywords": [
         "php",
         "omnipay",
+        "yookassa",
         "yandex-kassa",
         "merchant",
         "payment"
     ],
-    "homepage": "https://github.com/hiqdev/omnipay-yandex-kassa",
+    "homepage": "https://github.com/igor-tv/omnipay-yookassa",
     "license": "MIT",
     "support": {
-        "email": "support@hiqdev.com",
-        "source": "https://github.com/hiqdev/omnipay-yandex-kassa",
-        "issues": "https://github.com/hiqdev/omnipay-yandex-kassa/issues",
-        "wiki": "https://github.com/hiqdev/omnipay-yandex-kassa/wiki",
-        "forum": "http://forum.hiqdev.com/"
+        "email": "igor-tv@mail.ru",
+        "source": "https://github.com/igor-tv/omnipay-yookassa",
+        "issues": "https://github.com/igor-tv/omnipay-yookassa/issues",
+        "discussions": "https://github.com/igor-tv/omnipay-yookassa/discussions"
     },
     "authors": [
         {
@@ -42,13 +42,17 @@
             "role": "QA Lead",
             "email": "bladeroot@gmail.com",
             "homepage": "http://hiqdev.com/"
+        },
+        {
+            "name": "Igor Tverdokhleb",
+            "email": "igor-tv@mail.ru"
         }
     ],
     "require": {
         "php": ">=7.1",
         "ext-json": "*",
         "omnipay/common": "^3.0",
-        "yandex-money/yandex-checkout-sdk-php": "^1.2.1"
+        "yoomoney/yookassa-sdk-php": "^2.0"
     },
     "require-dev": {
         "omnipay/tests": "^3.0",
@@ -58,8 +62,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Omnipay\\YandexKassa\\": "src",
-            "Omnipay\\YandexKassa\\Tests\\": "tests/unit"
+            "Omnipay\\YooKassa\\": "src",
+            "Omnipay\\YooKassa\\Tests\\": "tests/unit"
         }
     },
     "repositories": [
