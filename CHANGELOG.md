@@ -34,4 +34,4 @@
 [3.0.0]: https://github.com/hiqdev/omnipay-yandex-kassa/releases/tag/3.0.0
 [3.0.1]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/3.0.0...3.0.1
 [3.0.2]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/3.0.1...3.0.2
-[4.0.0]: https://github.com/igor-tv/omnipay-yookassa/compare/3.0.2...4.0.0
+[4.0.0]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/3.0.4...igor-tv:4.0
