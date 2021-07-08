@@ -11,8 +11,8 @@
 namespace Omnipay\YooKassa\Message;
 
 use Omnipay\Common\Exception\InvalidResponseException;
-use YooKassaCheckout\Model\PaymentStatus;
-use YooKassaCheckout\Request\Payments\Payment\CreateCaptureResponse;
+use YooKassa\Model\PaymentStatus;
+use YooKassa\Request\Payments\Payment\CreateCaptureResponse;
 
 /**
  * Class CaptureResponse.
