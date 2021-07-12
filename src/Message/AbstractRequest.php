@@ -10,7 +10,7 @@
 
 namespace Omnipay\YooKassa\Message;
 
-use YooKassaCheckout\Client;
+use YooKassa\Client;
 
 /**
  * Class AbstractRequest.
