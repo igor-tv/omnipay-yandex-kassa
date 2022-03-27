@@ -6,6 +6,7 @@
     "value": "187.50",
     "currency": "RUB"
   },
+  "refundable": true,
   "authorization_details": {
     "rrn": "203768039024",
     "auth_code": "037229"

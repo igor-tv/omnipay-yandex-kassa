@@ -27,7 +27,7 @@ class PurchaseResponseTest extends TestCase
     private $description    = 'Test completePurchase description';
     private $returnUrl      = 'https://www.foodstore.com/success';
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -39,6 +39,7 @@ class PurchaseResponseTest extends TestCase
             'currency'      => $this->currency,
             'description'   => $this->description,
             'returnUrl'     => $this->returnUrl,
+            'refundable'    => true,
         ]);
     }
 

@@ -27,7 +27,7 @@ class CaptureResponseTest extends TestCase
     private $amount               = '187.50';
     private $currency             = 'RUB';
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

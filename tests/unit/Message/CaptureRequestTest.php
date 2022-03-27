@@ -26,7 +26,7 @@ class CaptureRequestTest extends TestCase
     private $amount               = '187.50';
     private $currency             = 'RUB';
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -40,6 +40,7 @@ class CaptureRequestTest extends TestCase
             'transactionId' => $this->transactionId,
             'amount' => $this->amount,
             'currency' => $this->currency,
+            'refundable' => true
         ]);
     }
 

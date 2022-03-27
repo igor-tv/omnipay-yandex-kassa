@@ -10,6 +10,7 @@
     "rrn" : "203768039024",
     "auth_code" : "037229"
   },
+  "refundable": true,
   "captured_at" : "2019-05-21T10:21:46.325Z",
   "created_at" : "2019-05-21T10:09:54.154Z",
   "description" : "domaincontext.com: deposit igor-tv@mail.ru for 3.00USD",

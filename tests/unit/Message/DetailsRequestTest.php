@@ -23,7 +23,7 @@ class DetailsRequestTest extends TestCase
     private $secretKey              = 'test_Fh8hUAVVBGUGbjmlzba6TB0iyUbos_lueTHE-axOwM0';
     private $transactionReference   = '2475e163-000f-5000-9000-18030530d620';
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
