@@ -2,6 +2,7 @@
   "id" : "247732b9-000f-5000-a000-13d9c7c381a8",
   "status" : "pending",
   "paid" : false,
+  "refundable": true,
   "amount" : {
     "value" : "12.46",
     "currency" : "RUB"

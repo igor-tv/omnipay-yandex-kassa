@@ -26,7 +26,7 @@ class GatewayTest extends GatewayTestCase
     private $currency       = 'USD';
     private $description    = 'Test completePurchase description';
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -54,5 +54,20 @@ class GatewayTest extends GatewayTestCase
         $this->assertSame($this->description,   $request->getDescription());
         $this->assertSame($this->currency,      $request->getCurrency());
         $this->assertSame($this->amount,        $request->getAmount());
+    }
+
+    public function testCaptureParameters()
+    {
+        $this->markTestSkipped('Capture not supported');
+    }
+
+    public function testPurchaseParameters()
+    {
+        $this->markTestSkipped('Purchase not supported');
+    }
+
+    public function testDefaultParametersHaveMatchingMethods()
+    {
+        $this->markTestSkipped('Default parameters not supported');
     }
 }

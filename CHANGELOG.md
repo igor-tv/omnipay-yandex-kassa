@@ -1,5 +1,9 @@
 ## [Under development]
 
+## [4.1.0] - 2022-03-27
+
+- Upgrade to YooKassa SDK 2.3.0 ([@SilverFire])
+
 ## [4.0.0] - 2021-05-10
 
 - Full rebranding from Yandex.Kassa to YooKassa ([@igor-tv]) 
@@ -35,3 +39,4 @@
 [3.0.1]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/3.0.0...3.0.1
 [3.0.2]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/3.0.1...3.0.2
 [4.0.0]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/3.0.4...igor-tv:4.0
+[4.1.0]: https://github.com/igor-tv/omnipay-yookassa/compare/4.0...4.1.0

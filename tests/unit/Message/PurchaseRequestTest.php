@@ -27,7 +27,7 @@ class PurchaseRequestTest extends TestCase
     private $description    = 'Test completePurchase description';
     private $returnUrl      = 'https://www.foodstore.com/success';
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

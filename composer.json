@@ -49,13 +49,13 @@
         }
     ],
     "require": {
-        "php": ">=7.1",
+        "php": "^7.1 | ^8.0",
         "ext-json": "*",
         "omnipay/common": "^3.0",
-        "yoomoney/yookassa-sdk-php": "^2.0"
+        "yoomoney/yookassa-sdk-php": "^2.3.0"
     },
     "require-dev": {
-        "omnipay/tests": "^3.0"
+        "omnipay/tests": "^4.0"
     },
     "autoload": {
         "psr-4": {

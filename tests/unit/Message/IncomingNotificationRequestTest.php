@@ -22,7 +22,7 @@ class IncomingNotificationRequestTest extends TestCase
     private $shopId                 = '54401';
     private $secretKey              = 'test_Fh8hUAVVBGUGbjmlzba6TB0iyUbos_lueTHE-axOwM0';
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

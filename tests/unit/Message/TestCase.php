@@ -11,7 +11,7 @@
 namespace Omnipay\YooKassa\Tests\Message;
 
 use Omnipay\YooKassa\Message\AbstractRequest;
-use YooKassaCheckout\Client;
+use YooKassa\Client;
 
 class TestCase extends \Omnipay\Tests\TestCase
 {
@@ -26,7 +26,7 @@ class TestCase extends \Omnipay\Tests\TestCase
     protected function getCurlClientStub()
     {
         $clientStub = $this->getMockBuilder(Client\CurlClient::class)
-                           ->setMethods(['sendRequest'])
+                           ->onlyMethods(['sendRequest'])
                            ->getMock();
 
         return $clientStub;

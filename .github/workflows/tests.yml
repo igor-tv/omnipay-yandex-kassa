@@ -1,0 +1,33 @@
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+  PHPUnit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['7.4', '8.0', '8.1']
+        coverage-driver: [pcov]
+    name: PHP ${{ matrix.php }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: gmp
+          coverage: pcov
+          tools: composer:v2, infection
+
+      - name: Update composer
+        run: composer self-update
+
+      - name: Composer install
+        run: composer install -n
+
+      - run: vendor/bin/phpunit
+        env:
+          XDEBUG_MODE: coverage
