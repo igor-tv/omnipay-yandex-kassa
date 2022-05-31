@@ -1,5 +1,9 @@
 ## [Under development]
 
+## [4.1.1] - 2022-03-27
+
+- Added payment capture param support
+
 ## [4.1.0] - 2022-03-27
 
 - Upgrade to YooKassa SDK 2.3.0 ([@SilverFire])
