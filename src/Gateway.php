@@ -109,8 +109,8 @@ class Gateway extends AbstractGateway
 
     private function injectYooKassaClient(array $parameters): array
     {
-        $this->setShopId($parameters['shopId']);
-        $this->setSecret($parameters['secret']);
+        $this->setShopId($this->parameters->get('shopId'));
+        $this->setSecret($this->parameters->get('secret'));
         $parameters['yooKassaClient'] = $this->getYooKassaClient();
 
         return $parameters;
