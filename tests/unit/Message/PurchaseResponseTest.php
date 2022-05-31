@@ -26,6 +26,7 @@ class PurchaseResponseTest extends TestCase
     private $currency       = 'RUB';
     private $description    = 'Test completePurchase description';
     private $returnUrl      = 'https://www.foodstore.com/success';
+    private $capture        = false;
 
     public function setUp(): void
     {
@@ -33,13 +34,14 @@ class PurchaseResponseTest extends TestCase
 
         $this->request = new PurchaseRequest($this->getHttpClient(), $this->getHttpRequest());
         $this->request->initialize([
-            'yooKassaClient'  => $this->buildYooKassaClient($this->shopId, $this->secretKey),
-            'transactionId' => $this->transactionId,
-            'amount'        => $this->amount,
-            'currency'      => $this->currency,
-            'description'   => $this->description,
-            'returnUrl'     => $this->returnUrl,
-            'refundable'    => true,
+            'yooKassaClient' => $this->buildYooKassaClient($this->shopId, $this->secretKey),
+            'transactionId'  => $this->transactionId,
+            'amount'         => $this->amount,
+            'currency'       => $this->currency,
+            'description'    => $this->description,
+            'returnUrl'      => $this->returnUrl,
+            'refundable'     => true,
+            'capture'        => $this->capture,
         ]);
     }
 
