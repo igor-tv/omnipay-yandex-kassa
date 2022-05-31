@@ -1,6 +1,6 @@
 ## [Under development]
 
-## [4.1.1] - 2022-03-27
+## [4.1.1] - 2022-05-31
 
 - Added payment capture param support
 
@@ -44,3 +44,4 @@
 [3.0.2]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/3.0.1...3.0.2
 [4.0.0]: https://github.com/hiqdev/omnipay-yandex-kassa/compare/3.0.4...igor-tv:4.0
 [4.1.0]: https://github.com/igor-tv/omnipay-yookassa/compare/4.0...4.1.0
+[4.1.1]: https://github.com/igor-tv/omnipay-yookassa/compare/4.1.0...4.1.1
