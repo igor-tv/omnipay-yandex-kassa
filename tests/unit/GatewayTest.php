@@ -25,6 +25,7 @@ class GatewayTest extends GatewayTestCase
     private $amount         = '12.46';
     private $currency       = 'USD';
     private $description    = 'Test completePurchase description';
+    private $capture        = false;
 
     public function setUp(): void
     {
@@ -48,11 +49,13 @@ class GatewayTest extends GatewayTestCase
             'amount'        => $this->amount,
             'currency'      => $this->currency,
             'description'   => $this->description,
+            'capture'       => $this->capture,
         ]);
 
         $this->assertSame($this->transactionId, $request->getTransactionId());
         $this->assertSame($this->description,   $request->getDescription());
         $this->assertSame($this->currency,      $request->getCurrency());
+        $this->assertSame($this->capture,       $request->getCapture());
         $this->assertSame($this->amount,        $request->getAmount());
     }
 

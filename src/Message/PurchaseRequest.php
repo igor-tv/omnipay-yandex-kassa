@@ -22,7 +22,7 @@ class PurchaseRequest extends AbstractRequest
 {
     public function getData()
     {
-        $this->validate('amount', 'currency', 'returnUrl', 'transactionId', 'description');
+        $this->validate('amount', 'currency', 'returnUrl', 'transactionId', 'description', 'capture');
 
         return [
             'amount' => $this->getAmount(),
@@ -30,6 +30,7 @@ class PurchaseRequest extends AbstractRequest
             'description' => $this->getDescription(),
             'return_url' => $this->getReturnUrl(),
             'transactionId' => $this->getTransactionId(),
+            'capture' => $this->getCapture(),
             'refundable' => true,
         ];
     }
@@ -47,6 +48,7 @@ class PurchaseRequest extends AbstractRequest
                     'type' => 'redirect',
                     'return_url' => $data['return_url'],
                 ],
+                'capture' => $data['capture'],
                 'metadata' => [
                     'transactionId' => $data['transactionId'],
                 ],

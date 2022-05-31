@@ -26,6 +26,7 @@ class PurchaseRequestTest extends TestCase
     private $currency       = 'RUB';
     private $description    = 'Test completePurchase description';
     private $returnUrl      = 'https://www.foodstore.com/success';
+    private $capture        = false;
 
     public function setUp(): void
     {
@@ -39,6 +40,7 @@ class PurchaseRequestTest extends TestCase
             'currency'      => $this->currency,
             'description'   => $this->description,
             'returnUrl'     => $this->returnUrl,
+            'capture'       => $this->capture,
         ]);
     }
 
@@ -50,6 +52,7 @@ class PurchaseRequestTest extends TestCase
         $this->assertSame($this->currency, $data['currency']);
         $this->assertSame($this->description, $data['description']);
         $this->assertSame($this->returnUrl, $data['return_url']);
+        $this->assertSame($this->capture, $data['capture']);
         $this->assertSame($this->transactionId, $data['transactionId']);
     }
 
