@@ -13,7 +13,7 @@ namespace Omnipay\YooKassa\Message;
 use Omnipay\Common\Exception\InvalidResponseException;
 use Omnipay\Common\Message\AbstractResponse;
 use Omnipay\Common\Message\RequestInterface;
-use YooKassa\Model\PaymentInterface;
+use YooKassa\Model\Payment\PaymentInterface;
 
 /**
  * Class DetailsResponse.
