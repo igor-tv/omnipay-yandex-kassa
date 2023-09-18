@@ -10,9 +10,6 @@
 
 namespace Omnipay\YooKassa\Message;
 
-use Omnipay\Common\Exception\InvalidRequestException;
-use Throwable;
-
 /**
  * Class PurchaseRequest.
  *
@@ -20,22 +17,6 @@ use Throwable;
  */
 class PurchaseRequest extends AbstractRequest
 {
-    public function getData()
-    {
-        $this->validate('amount', 'currency', 'returnUrl', 'transactionId', 'description', 'capture', 'receipt');
-
-        return [
-            'amount' => $this->getAmount(),
-            'currency' => $this->getCurrency(),
-            'description' => $this->getDescription(),
-            'return_url' => $this->getReturnUrl(),
-            'transactionId' => $this->getTransactionId(),
-            'capture' => $this->getCapture(),
-            'receipt' => $this->getReceipt(),
-            'refundable' => true,
-        ];
-    }
-
     public function sendData($data)
     {
         try {
@@ -64,6 +45,26 @@ class PurchaseRequest extends AbstractRequest
 
     private function makeIdempotencyKey(): string
     {
-        return md5(implode(',', array_merge(['create'], $this->getData())));
+        return md5(
+            implode(',',
+                ['create', json_encode($this->getData())],
+            )
+        );
+    }
+
+    public function getData()
+    {
+        $this->validate('amount', 'currency', 'returnUrl', 'transactionId', 'description', 'capture');
+
+        return [
+            'amount' => $this->getAmount(),
+            'currency' => $this->getCurrency(),
+            'description' => $this->getDescription(),
+            'return_url' => $this->getReturnUrl(),
+            'transactionId' => $this->getTransactionId(),
+            'capture' => $this->getCapture(),
+            'receipt' => $this->getReceipt(),
+            'refundable' => true,
+        ];
     }
 }
