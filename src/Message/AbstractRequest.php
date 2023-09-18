@@ -54,6 +54,16 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('capture', $value);
     }
 
+    public function getReceipt()
+    {
+        return $this->getParameter('receipt');
+    }
+    
+    public function setReceipt($value)
+    {
+        return $this->setParameter('receipt', $value);
+    }
+
     public function setYooKassaClient(Client $client): void
     {
         $this->client = $client;
