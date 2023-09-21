@@ -52,7 +52,7 @@
         "php": "^7.1 | ^8.0",
         "ext-json": "*",
         "omnipay/common": "^3.0",
-        "yoomoney/yookassa-sdk-php": "^3.1.0"
+        "yoomoney/yookassa-sdk-php": "^3.0"
     },
     "require-dev": {
         "omnipay/tests": "^4.0"
