@@ -20,7 +20,7 @@ class PurchaseRequest extends AbstractRequest
     public function sendData($data)
     {
         try {
-            $paymentResponse = $this->client->createPayment([
+            $options = [
                 'amount' => [
                     'value' => $data['amount'],
                     'currency' => $data['currency'],
@@ -35,7 +35,18 @@ class PurchaseRequest extends AbstractRequest
                 'metadata' => [
                     'transactionId' => $data['transactionId'],
                 ],
-            ], $this->makeIdempotencyKey());
+            ];
+
+            if(!empty($data['receipt'])) {
+                $options['receipt'] = $data['receipt'];
+            }
+
+            if(!empty($data['payment_method_data'])) {
+                $options['payment_method_data'] = $data['payment_method_data'];
+            }
+
+
+            $paymentResponse = $this->client->createPayment($options, $this->makeIdempotencyKey());
 
             return $this->response = new PurchaseResponse($this, $paymentResponse);
         } catch (Throwable $e) {
@@ -64,6 +75,7 @@ class PurchaseRequest extends AbstractRequest
             'transactionId' => $this->getTransactionId(),
             'capture' => $this->getCapture(),
             'receipt' => $this->getReceipt(),
+            'payment_method_data' => $this->getPaymentMethodData(),
             'refundable' => true,
         ];
     }
