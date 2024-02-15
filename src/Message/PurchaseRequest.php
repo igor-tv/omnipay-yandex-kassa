@@ -31,6 +31,8 @@ class PurchaseRequest extends AbstractRequest
             'return_url' => $this->getReturnUrl(),
             'transactionId' => $this->getTransactionId(),
             'capture' => $this->getCapture(),
+            'receipt' => $this->getReceipt(),
+            'payment_method_data' => $this->getPaymentMethodData(),
             'refundable' => true,
         ];
     }
@@ -38,11 +40,12 @@ class PurchaseRequest extends AbstractRequest
     public function sendData($data)
     {
         try {
-            $paymentResponse = $this->client->createPayment([
+            $options = [
                 'amount' => [
                     'value' => $data['amount'],
                     'currency' => $data['currency'],
                 ],
+                'receipt' => $data['receipt'],
                 'description' => $data['description'],
                 'confirmation' => [
                     'type' => 'redirect',
@@ -52,7 +55,18 @@ class PurchaseRequest extends AbstractRequest
                 'metadata' => [
                     'transactionId' => $data['transactionId'],
                 ],
-            ], $this->makeIdempotencyKey());
+            ];
+
+            if(!empty($data['receipt'])) {
+                $options['receipt'] = $data['receipt'];
+            }
+
+            if(!empty($data['payment_method_data'])) {
+                $options['payment_method_data'] = $data['payment_method_data'];
+            }
+
+
+            $paymentResponse = $this->client->createPayment($options, $this->makeIdempotencyKey());
 
             return $this->response = new PurchaseResponse($this, $paymentResponse);
         } catch (Throwable $e) {
@@ -62,6 +76,10 @@ class PurchaseRequest extends AbstractRequest
 
     private function makeIdempotencyKey(): string
     {
-        return md5(implode(',', array_merge(['create'], $this->getData())));
+        return md5(
+            implode(',',
+                ['create', json_encode($this->getData())]
+            )
+        );
     }
 }
